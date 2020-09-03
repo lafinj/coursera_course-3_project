@@ -45,3 +45,4 @@ means_std[,'activity'] <- recode(means_std[,'activity'], !!!labs)
 ## the average of each variable for each activity and subject
 
 final <- means_std %>% group_by(subject, activity) %>% summarize(across(everything(), mean))
+write.table(final, file = 'output.txt', row.names = FALSE)
